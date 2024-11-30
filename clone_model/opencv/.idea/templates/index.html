@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Face Data Collection</title>
+</head>
+<body>
+<h1>Face Data Collection</h1>
+<form action="/save_image" method="post">
+    <label for="label">Enter Label:</label>
+    <input type="text" id="label" name="label" required>
+    <button type="submit">Capture Face</button>
+</form>
+<a href="/train_model">Train Model</a>
+<a href="/recognize">Start Recognition</a>
+</body>
+</html>

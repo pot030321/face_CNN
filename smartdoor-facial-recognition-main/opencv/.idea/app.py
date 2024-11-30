@@ -10,9 +10,6 @@ import base64  # Thêm dòng này
 app = Flask(__name__)
 CORS(app)  # Kích hoạt CORS cho toàn bộ ứng dụng
 
-# Load mô hình và label encoder
-model = load_model('models/model.h5')
-classes = np.load('models/label_encoder.npy', allow_pickle=True)
 
 def recognize_image(image):
     npimg = np.frombuffer(image, np.uint8)
@@ -46,6 +43,10 @@ def train():
 
 @app.route('/recognize', methods=['POST'])
 def recognize():
+    # Load mô hình và label encoder
+    model = load_model('models/model.h5')
+    classes = np.load('models/label_encoder.npy', allow_pickle=True)
+
     print("POST request received")  # Log để kiểm tra xem có nhận yêu cầu POST không
     try:
         data = request.get_json()
